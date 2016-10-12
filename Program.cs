@@ -2,26 +2,58 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+/*
+Волошко Екатерина, 10МИ3
+Вариант №8
+*/
 
-namespace ConsoleApplication2
+namespace ConsoleApplication1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите первое число для сложения:");
-            string s = Console.ReadLine();
-            int a = Convert.ToInt32(s);
+            double x, y; //Координаты точки
+            bool g;     //Значение функции   
+            string str; //Строка ввода и вывода данных
 
-            Console.WriteLine("Введите второе число для сложения:");
-            string s2 = Console.ReadLine();
-            int b = Convert.ToInt32(s2);
 
-            int c = a + b;
-            Console.WriteLine("Сумма данных чисел:");
-            Console.WriteLine(c);
+            Console.Clear();
+            Console.Write("Введите x: ");
+            str = Console.ReadLine();
+            x = double.Parse(str);
+            Console.Write("Введите y: ");
+            str = Console.ReadLine();
+            y = double.Parse(str);
+
+            if (x >= 1.0 && y >= 1.1)
+                if (x <= 2.5)
+                    if (y <= 2.1)
+                    {
+                        g = true; // Следовательно в фигуре
+                    }
+                    else
+                    {
+                        g = false; // Следовательно не в фигуре
+                    }
+                else
+                {
+                    g = false; // Следовательно не в фигуре
+                }
+            else
+            {
+                g = false; // Следавательно не в фигуре
+            }
+
+            str = string.Format("G({0:f3},{1:f3}) = {2}", x, y, g);
+
+            Console.WriteLine(str);
+
             Console.ReadLine();
+
+
         }
-    }
-}
+    } //Конец определения метода
+}// Конец определения класса
+    
+

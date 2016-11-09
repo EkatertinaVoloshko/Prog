@@ -2,58 +2,58 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-/*
-Волошко Екатерина, 10МИ3
-Вариант №8
-*/
 
-namespace ConsoleApplication1
+namespace Волошко._16
 {
     class Program
     {
         static void Main(string[] args)
         {
-            double x, y; //Координаты точки
-            bool g;     //Значение функции   
-            string str; //Строка ввода и вывода данных
+            /*Волошко Екатерина
+              группа 10МИ3 (М4)
+              Вариант 16
+              09.11.2016
+             */
+            int cifra, // Первое число ( код цифры )
+                bukva, // Второе число ( код буквы )
+                delta, // Величина сдвига в алфавите
+                newbukva; // Код новой буквы
+            char rep; // Признак повторного выполнения
+            string str; // Строка приема и вывода данных
 
-
-            Console.Clear();
-            Console.Write("Введите x: ");
-            str = Console.ReadLine();
-            x = double.Parse(str);
-            Console.Write("Введите y: ");
-            str = Console.ReadLine();
-            y = double.Parse(str);
-
-            if (x >= 1.0 && y >= 1.1)
-                if (x <= 2.5)
-                    if (y <= 2.1)
-                    {
-                        g = true; // Следовательно в фигуре
-                    }
-                    else
-                    {
-                        g = false; // Следовательно не в фигуре
-                    }
-                else
-                {
-                    g = false; // Следовательно не в фигуре
-                }
-            else
+            do
             {
-                g = false; // Следавательно не в фигуре
-            }
+                Console.Clear();
+                Console.Write("Введите код цифры: ");
+                str = Console.ReadLine();
+                cifra = int.Parse(str);
+                Console.Write("Введите код буквы : ");
+                str = Console.ReadLine();
+                bukva = int.Parse(str);
 
-            str = string.Format("G({0:f3},{1:f3}) = {2}", x, y, g);
-
-            Console.WriteLine(str);
-
-            Console.ReadLine();
-
+                newbukva = bukva;
+                if (cifra >= '0' && cifra <= '9')
+                {
+                    delta = cifra - '0';
+                    if (bukva >= 'A' && bukva <= 'Z')
+                    {
+                        newbukva = bukva + delta;
+                        if (newbukva > 'Z') newbukva = bukva;
+                    }
+                }
+                if (newbukva == bukva)
+                    str = "Преобразование не выполняется ";
+                else 
+                    str = string.Format("{0} -> {1}", (char)bukva,(char)newbukva);
+                Console.WriteLine(str);
+                Console.WriteLine("Для повтора вычислений нажмите клавишу Y: ");
+                rep = char.Parse(Console.ReadLine());
+                Console.WriteLine();
+            }while(rep == 'Y' || rep == 'y');
+        
+    
+                   
 
         }
-    } //Конец определения метода
-}// Конец определения класса
-    
-
+    }
+}
